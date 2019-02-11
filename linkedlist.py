@@ -13,9 +13,9 @@ class HedgehogList:
         return self.head == None
 
     def find_max(self, hedgehog = None):
-        if hedgehog == None:
-            self.find_max(self.head)
-        if hedgehog.next == None:
+        if hedgehog is None:
+            return self.find_max(self.head)
+        elif hedgehog.next is None:
             return hedgehog.number
         else:
             max_of_rest = self.find_max(hedgehog.next)
