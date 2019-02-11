@@ -1,12 +1,14 @@
 class Hedgehog(object):
     # Create a constructure for the class
     def __init__(self, number):
-        return None
+        self.number = number
+        self.next = None
 
 class HedgehogList(object):
     # Create a constructure for the class
-    def __init__(self):
-        return None
+    def __init__(self, head=None):
+        self.head = head
+        self.length = 0
 
     def add_first(self, number):
          return None
@@ -18,7 +20,7 @@ class HedgehogList(object):
         return None
 
     def is_empty(self):
-        return None
+        return self.head == None
 
     def find_max(self, item=None):
         return None
