@@ -11,3 +11,10 @@ class HedgehogList:
     
     def is_empty(self):
         return self.head == None
+
+    def add_first(self, number):
+        new_hedgehog=Hedgehog(number)
+        new_hedgehog.next= self.head
+        self.head=new_hedgehog
+        self.length +=1
+        return self.head
