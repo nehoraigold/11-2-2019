@@ -5,8 +5,7 @@ class Hedgehog(object):
         self.next = None
 
 
-class HedgehogList(object):
-    # Create a constructure for the class
+class HedgehogList:
     def __init__(self, head=None):
         self.head = head
         self.length = 0
