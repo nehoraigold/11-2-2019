@@ -12,17 +12,10 @@ class HedgehogList:
     def is_empty(self):
         return self.head == None
 
-<<<<<<< HEAD
     def find_max(self, hedgehog = None):
         if hedgehog is None:
             return self.find_max(self.head)
         elif hedgehog.next is None:
-=======
-    def find_max(self, hedgehog=None):
-        if hedgehog == None:
-            self.find_max(self.head)
-        if hedgehog.next == None:
->>>>>>> 6e52915325364198ed59347dfbfd7d0b766fcede
             return hedgehog.number
         else:
             max_of_rest = self.find_max(hedgehog.next)
