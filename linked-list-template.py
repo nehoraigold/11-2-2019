@@ -1,15 +1,18 @@
 class Hedgehog(object):
     # Create a constructure for the class
     def __init__(self, number):
-        return None
+        self.number = number
+        self.next = None
+
 
 class HedgehogList(object):
     # Create a constructure for the class
-    def __init__(self):
-        return None
+    def __init__(self, head=None):
+        self.head = head
+        self.length = 0
 
     def add_first(self, number):
-         return None
+        return None
 
     def add_last(self, number):
         return None
@@ -18,16 +21,21 @@ class HedgehogList(object):
         return None
 
     def is_empty(self):
-        return None
+        return self.head == None
 
     def find_max(self, item=None):
         return None
 
     def remove(self, number):
-        return None
+        curr = self.head
+        while curr:
+            if curr.getData() == number:
+                return True
+            curr = curr.getNextNode()
+        return False
 
 
-############ Tests ############### 
+############ Tests ###############
 # run the file and make sure all the tests passes
 
 def test_list(actual, expected):
@@ -42,7 +50,8 @@ def test_list(actual, expected):
 
 
 def test_length(linked_list, expected_length):
-    err_msg = "Length should be {}, got {}".format(expected_length, linked_list.length)
+    err_msg = "Length should be {}, got {}".format(
+        expected_length, linked_list.length)
     assert linked_list.length == expected_length, err_msg
 
 
@@ -50,28 +59,30 @@ def test_value(actual, expected, msg=""):
     err_msg = msg + " should be {}, got {}".format(expected, actual)
     assert actual == expected, err_msg
 
+
 def test_max(linked_list, expected):
     max = linked_list.find_max()
     test_value(max, expected, "Wrong maximum")
 
+
 def create_list(numbers):
     list = HedgehogList()
     for item in numbers:
-        list.add_last(item) 
+        list.add_last(item)
     return list
 
 
 if __name__ == "__main__":
     # test 1: Hedgehog class
-    first=Hedgehog(4)
-    first.next=Hedgehog(1)
-    first.next.next=Hedgehog(7)
+    first = Hedgehog(4)
+    first.next = Hedgehog(1)
+    first.next.next = Hedgehog(7)
 
     test_list(first, [4, 1, 7])
     print("test 1: Hedgehog class passed")
 
     # test 2: add first & HedgehogList class
-    my_list=HedgehogList()
+    my_list = HedgehogList()
     my_list.add_first(6)
     my_list.add_first(4)
     my_list.add_first(2)
@@ -80,7 +91,7 @@ if __name__ == "__main__":
     print("test 2: add first & HedgehogList class passed")
 
     # test 3: add last
-    my_list2=HedgehogList()
+    my_list2 = HedgehogList()
     my_list2.add_last(6)
     my_list2.add_last(4)
     my_list2.add_last(2)
@@ -125,19 +136,17 @@ if __name__ == "__main__":
     print("test 5: remove passed")
 
     # test 6: find max
-    test_list(create_list([1,4,3,2]).head, [1,4,3,2])
-    test_max(create_list([1,4,3,2]), 4)
-    test_max(create_list([9,4,3,2]), 9)
-    test_max(create_list([1,4,3,8]), 8)
+    test_list(create_list([1, 4, 3, 2]).head, [1, 4, 3, 2])
+    test_max(create_list([1, 4, 3, 2]), 4)
+    test_max(create_list([9, 4, 3, 2]), 9)
+    test_max(create_list([1, 4, 3, 8]), 8)
     test_max(create_list([1]), 1)
     print("test 6: find max passed")
 
-
     # test 7: Ninja - create linked list from list
-    test_list(HedgehogList([1,4,3,2]).head, [1,4,3,2])
-    test_list(HedgehogList([1,4,3,2]).head, [1,4,3,2])
-    test_list(HedgehogList([9,4,3,2]).head, [9,4,3,2])
-    test_list(HedgehogList([1,4,3,8]).head, [1,4,3,8])
+    test_list(HedgehogList([1, 4, 3, 2]).head, [1, 4, 3, 2])
+    test_list(HedgehogList([1, 4, 3, 2]).head, [1, 4, 3, 2])
+    test_list(HedgehogList([9, 4, 3, 2]).head, [9, 4, 3, 2])
+    test_list(HedgehogList([1, 4, 3, 8]).head, [1, 4, 3, 8])
     test_list(HedgehogList([1]).head, [1])
     print("test 7: Ninja - create linked list from list passed")
-
