@@ -5,14 +5,14 @@ class Hedgehog:
 
 
 class HedgehogList:
-    def __init__(self, head = None):
+    def __init__(self, head=None):
         self.head = head
         self.length = 0
-    
+
     def is_empty(self):
         return self.head == None
 
-    def find_max(self, hedgehog = None):
+    def find_max(self, hedgehog=None):
         if hedgehog == None:
             self.find_max(self.head)
         if hedgehog.next == None:
@@ -20,20 +20,25 @@ class HedgehogList:
         else:
             max_of_rest = self.find_max(hedgehog.next)
             return max_of_rest if max_of_rest > hedgehog.number else hedgehog.number
-    
-    def add_first(self, number):
-        new_hedgehog=Hedgehog(number)
-        new_hedgehog.next= self.head
-        self.head=new_hedgehog
-        self.length +=1
-        return self.head
-    
-    def remove(self, number):
-        return None
 
+    def add_first(self, number):
+        new_hedgehog = Hedgehog(number)
+        new_hedgehog.next = self.head
+        self.head = new_hedgehog
+        self.length += 1
+        return self.head
+
+    def remove(self, number):
+        curr = self.head
+        while curr:
+            if curr.getData() == number:
+                return True
+            curr = curr.getNextNode()
+        return False
 
 ############ Tests ###############
 # run the file and make sure all the tests passes
+
 
 def test_list(actual, expected):
     item_index = 1
