@@ -24,7 +24,7 @@ class HedgehogList:
     def is_empty(self):
         return self.head == None
 
-    def find_max(self, hedgehog = None):
+    def find_max(self, hedgehog=None):
         if hedgehog is None:
             return self.find_max(self.head)
         elif hedgehog.next is None:
@@ -46,8 +46,10 @@ class HedgehogList:
 
     def remove(self, number):
         hedgehog = self.head
-        while hedgehog.next.number != number:
+        while hedgehog.next and hedgehog.next.number != number:
             hedgehog = hedgehog.next
+        if not hedgehog.next:
+            return None
         deletedHog = hedgehog.next
         hedgehog.next = hedgehog.next.next
         deletedHog.next = None
