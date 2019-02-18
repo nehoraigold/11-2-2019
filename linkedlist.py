@@ -29,12 +29,13 @@ class HedgehogList:
         return self.head
 
     def remove(self, number):
-        curr = self.head
-        while curr:
-            if curr.getData() == number:
-                return True
-            curr = curr.getNextNode()
-        return False
+        hedgehog = self.head
+        while hedgehog.next.number != number:
+            hedgehog = hedgehog.next
+        deletedHog = hedgehog.next
+        hedgehog.next = hedgehog.next.next
+        deletedHog.next = None
+        return deletedHog
 
 ############ Tests ###############
 # run the file and make sure all the tests passes
