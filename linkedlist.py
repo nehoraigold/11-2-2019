@@ -9,6 +9,18 @@ class HedgehogList:
         self.head = head
         self.length = 0
 
+    def add_last(self, number):
+        last_hedgehog = Hedgehog(number)
+        print(last_hedgehog)
+        pointer = self.head
+        if pointer == None:
+            self.head = last_hedgehog
+        else:
+            while pointer.next != None:
+                pointer = pointer.next
+            pointer.next = last_hedgehog
+        self.length = self.length + 1
+
     def is_empty(self):
         return self.head == None
 
