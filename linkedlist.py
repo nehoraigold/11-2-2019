@@ -46,6 +46,11 @@ class HedgehogList:
 
     def remove(self, number):
         hedgehog = self.head
+        if hedgehog.number = number:
+            deletedHog = hedgehog
+            self.head = hedgehog.next
+            self.length -= 1
+            return deletedHog
         while hedgehog.next and hedgehog.next.number != number:
             hedgehog = hedgehog.next
         if not hedgehog.next:
