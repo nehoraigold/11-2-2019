@@ -56,6 +56,7 @@ class HedgehogList:
         if not hedgehog.next:
             return None
         deletedHog = hedgehog.next
+        self.length -= 1
         hedgehog.next = hedgehog.next.next
         deletedHog.next = None
         return deletedHog
@@ -100,46 +101,46 @@ def create_list(numbers):
 
 if __name__ == "__main__":
     # test 1: Hedgehog class
-    first = Hedgehog(4)
-    first.next = Hedgehog(1)
-    first.next.next = Hedgehog(7)
-
-    test_list(first, [4, 1, 7])
-    print("test 1: Hedgehog class passed")
-
-    # test 2: add first & HedgehogList class
-    my_list = HedgehogList()
-    my_list.add_first(6)
-    my_list.add_first(4)
-    my_list.add_first(2)
-
-    test_list(my_list.head, [2, 4, 6])
-    print("test 2: add first & HedgehogList class passed")
+    # first = Hedgehog(4)
+    # first.next = Hedgehog(1)
+    # first.next.next = Hedgehog(7)
+    #
+    # test_list(first, [4, 1, 7])
+    # print("test 1: Hedgehog class passed")
+    #
+    # # test 2: add first & HedgehogList class
+    # my_list = HedgehogList()
+    # my_list.add_first(6)
+    # my_list.add_first(4)
+    # my_list.add_first(2)
+    #
+    # test_list(my_list.head, [2, 4, 6])
+    # print("test 2: add first & HedgehogList class passed")
 
     # test 3: add last
-    my_list2 = HedgehogList()
-    my_list2.add_last(6)
-    my_list2.add_last(4)
-    my_list2.add_last(2)
+    # my_list2 = HedgehogList()
+    # my_list2.add_last(6)
+    # my_list2.add_last(4)
+    # my_list2.add_last(2)
+    #
+    # test_list(my_list2.head, [6, 4, 2])
+    # print("test 3: add last passed")
 
-    test_list(my_list2.head, [6, 4, 2])
-    print("test 3: add last passed")
+    # # test 4: length
+    # my_list = HedgehogList()
+    # test_length(my_list, 0)
+    # my_list.add_first(6)
+    # test_list(my_list.head, [6])
+    # test_length(my_list, 1)
+    # my_list.add_first(4)
+    # test_list(my_list.head, [4, 6])
+    # test_length(my_list, 2)
+    # my_list.add_last(8)
+    # test_list(my_list.head, [4, 6, 8])
+    # test_length(my_list, 3)
+    # print("test 4: length passed")
 
-    # test 4: length
-    my_list = HedgehogList()
-    test_length(my_list, 0)
-    my_list.add_first(6)
-    test_list(my_list.head, [6])
-    test_length(my_list, 1)
-    my_list.add_first(4)
-    test_list(my_list.head, [4, 6])
-    test_length(my_list, 2)
-    my_list.add_last(8)
-    test_list(my_list.head, [4, 6, 8])
-    test_length(my_list, 3)
-    print("test 4: length passed")
-
-    # test 5: remove
+    # # test 5: remove
     my_list = create_list([2, 4, 6, 8])
     removed = my_list.remove(3)
     test_value(removed, None)
@@ -161,18 +162,18 @@ if __name__ == "__main__":
     assert my_list.is_empty() == True, "List should be empty"
     print("test 5: remove passed")
 
-    # test 6: find max
-    test_list(create_list([1, 4, 3, 2]).head, [1, 4, 3, 2])
-    test_max(create_list([1, 4, 3, 2]), 4)
-    test_max(create_list([9, 4, 3, 2]), 9)
-    test_max(create_list([1, 4, 3, 8]), 8)
-    test_max(create_list([1]), 1)
-    print("test 6: find max passed")
-
-    # test 7: Ninja - create linked list from list
-    test_list(HedgehogList([1, 4, 3, 2]).head, [1, 4, 3, 2])
-    test_list(HedgehogList([1, 4, 3, 2]).head, [1, 4, 3, 2])
-    test_list(HedgehogList([9, 4, 3, 2]).head, [9, 4, 3, 2])
-    test_list(HedgehogList([1, 4, 3, 8]).head, [1, 4, 3, 8])
-    test_list(HedgehogList([1]).head, [1])
-    print("test 7: Ninja - create linked list from list passed")
+    # # test 6: find max
+    # test_list(create_list([1, 4, 3, 2]).head, [1, 4, 3, 2])
+    # test_max(create_list([1, 4, 3, 2]), 4)
+    # test_max(create_list([9, 4, 3, 2]), 9)
+    # test_max(create_list([1, 4, 3, 8]), 8)
+    # test_max(create_list([1]), 1)
+    # print("test 6: find max passed")
+    #
+    # # test 7: Ninja - create linked list from list
+    # test_list(HedgehogList([1, 4, 3, 2]).head, [1, 4, 3, 2])
+    # test_list(HedgehogList([1, 4, 3, 2]).head, [1, 4, 3, 2])
+    # test_list(HedgehogList([9, 4, 3, 2]).head, [9, 4, 3, 2])
+    # test_list(HedgehogList([1, 4, 3, 8]).head, [1, 4, 3, 8])
+    # test_list(HedgehogList([1]).head, [1])
+    # print("test 7: Ninja - create linked list from list passed")
