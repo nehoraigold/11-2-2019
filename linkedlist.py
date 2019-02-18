@@ -28,6 +28,10 @@ class HedgehogList:
         self.length += 1
         return self.head
 
+    def get_length(self):
+        self.length += 1
+        return self.length
+
     def remove(self, number):
         curr = self.head
         while curr:
