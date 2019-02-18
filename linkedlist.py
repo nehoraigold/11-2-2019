@@ -12,10 +12,10 @@ class HedgehogList:
     def is_empty(self):
         return self.head == None
 
-    def find_max(self, hedgehog=None):
-        if hedgehog == None:
-            self.find_max(self.head)
-        if hedgehog.next == None:
+    def find_max(self, hedgehog = None):
+        if hedgehog is None:
+            return self.find_max(self.head)
+        elif hedgehog.next is None:
             return hedgehog.number
         else:
             max_of_rest = self.find_max(hedgehog.next)
@@ -27,6 +27,10 @@ class HedgehogList:
         self.head = new_hedgehog
         self.length += 1
         return self.head
+
+    def get_length(self):
+        self.length += 1
+        return self.length
 
     def remove(self, number):
         hedgehog = self.head
